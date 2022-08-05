@@ -1,19 +1,19 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int dp(int n){
+int rec(int n){
     if(n==0){
         cout<<endl;
         return 0;
     }
     cout<<n<<" ";
-    return dp(n-1);
+    return rec(n-1);
 }
 
 int main(){
     int t;cin>>t;
     while(t--){
         int n;cin>>n;
-        dp(n);
+        rec(n);
     }
 }
