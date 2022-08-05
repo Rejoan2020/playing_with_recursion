@@ -1,1 +1,20 @@
+#include<bits/stdc++.h>
+using namespace std;
 
+int rec(int n,int k){
+    if(n==0){
+        return 0;
+    }
+    int ans = rec(n-1,k);
+    cout<<n<<" ";
+    if(n==k)cout<<endl;
+    return ans;
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        rec(n);
+    }
+}
