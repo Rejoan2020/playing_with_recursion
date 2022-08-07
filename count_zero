@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int count_zero(int n,int c){
+    if(n==0)return c;
+
+    int d = n%10;
+    if(d==0)c++;
+
+    count_zero(n/10,c);
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        int c = 0;
+        cout<<count_zero(n,c)<<endl;
+    }
+}
