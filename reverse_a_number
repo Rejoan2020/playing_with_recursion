@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+//int ans=0;
+
+int reverse_rec(int n,int k){
+    if(n==0)return 0;
+
+    int ans = (n%10)*pow(10,k) + reverse_rec(n/10,k-1);
+
+    return ans;
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        int k = log10(n);
+
+        cout<<reverse_rec(n,k)<<endl;
+    }
+}
