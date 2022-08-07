@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+vector<int> find_rec(int *a,int n,int c){
+
+    vector <int> al;
+
+    if(n==-1){
+        return al;
+    }
+    if(a[n]==c){
+        al.push_back(n);
+    }
+
+    vector <int> v = find_rec(a,n-1,c);
+
+    if(v.size()>0){
+        for(int i=0;i<v.size();i++){
+            al.push_back(v[i]);
+        }
+    }
+
+    return al;
+
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        int a[n];
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        int num = 5;
+        vector <int> v = find_rec(a,n-1,num);
+        for(int i=0;i<v.size();i++){
+            cout<<v[i]<<" ";
+        }
+        cout<<endl;
+    }
+}
