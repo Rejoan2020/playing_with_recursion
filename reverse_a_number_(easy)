@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int ans=0;
+
+int reverse_rec(int n){
+    if(n==0)return 0;
+
+    int d = n%10;
+    ans = ans * 10 + d;
+    reverse_rec(n/10);
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        //int k = log10(n);
+
+        reverse_rec(n);
+
+        cout<<ans<<endl;
+        ans  = 0;
+    }
+}
