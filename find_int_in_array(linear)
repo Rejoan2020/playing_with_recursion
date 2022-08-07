@@ -10,8 +10,8 @@ int find_rec(int *a,int n,int c){
     if(a[n]==c){
         return n+1;
     }
-
-    return find_rec(a,n-1,c);
+    
+    else return find_rec(a,n-1,c);
 
 }
 
