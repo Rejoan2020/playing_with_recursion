@@ -1,12 +1,11 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll = long long;
-
 int binary_find(int *a,int start,int en,int num){
     if(en>=start){
         int mid = (start + en ) /2;
         if(a[mid]==num){
-            return mid + 1;
+            return mid;
         }
         else if(a[mid]>num){
             en = mid - 1; // here "mid-1" because a[mid] != num
@@ -31,6 +30,6 @@ int main(){
             cin>>a[i];
         }
         int num ; cin>>num;
-        cout<<binary_find(a,0,n,num)<<endl;
+        cout<<binary_find(a,0,n-1,num)<<endl;
     }
 }
