@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+void pattern(int r,int c,int cp){
+    if(r==0)return;
+    if(c<cp){
+        cout<<"*"<<" ";
+        pattern(r,c+1,cp);
+    }
+    else {
+        cout<<endl;
+        pattern(r-1,0,cp+1);
+    }
+
+}
+
+int main(){
+    int t;cin>>t;
+    while(t--){
+        int n;cin>>n;
+        pattern(n,0,1);
+    }
+}
