@@ -51,10 +51,10 @@ int main(){
         }
         int num = 3;
         //cout<<binary_find(a,0,n,num)<<endl;
-        int pivot = find_pivot(a,0,n,n);
+        int pivot = find_pivot(a,0,n-1,n);
         int ans = binary_find(a,0,pivot,4);
         if(ans==-1){
-            cout<<binary_find(a,pivot,n,4)<<endl;
+            cout<<binary_find(a,pivot+1,n-1,4)<<endl;
         }
         else cout<<ans<<endl;
     }
