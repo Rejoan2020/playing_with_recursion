@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<string> subset(string s,string t){
+    if(s.empty()){
+        vector<string> v;
+        v.push_back(t);
+        return v;
+    }
+    vector<string> left = subset(s.substr(1,s.size()),t+s.substr(0,1));
+    if(s[0]==t[t.size()-1]){vector<string> nl;return left;}
+    vector<string> right = subset(s.substr(1,s.size()),t);
+
+    for(int i=0;i<right.size();i++){
+        left.push_back(right[i]);
+    }
+
+    return left;
+}
+
+int main()
+{
+    string s="abb";
+    sort(s.begin(),s.end());
+    vector<string> t = subset(s,"");
+    for(int i=0;i<t.size();i++){
+        cout<<t[i]<<endl;
+    }
+}
