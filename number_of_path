@@ -1,1 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
 
+int number_of_path(int r,int c){
+    if(r==1 || c==1){
+        return 1;
+    }
+
+    int left = number_of_path(r-1,c);
+    int right= number_of_path(r,c-1);
+
+    return left+right;
+}
+
+int main()
+{
+    vector<int> a[3];
+    for(int i=0;i<3;i++){
+        for(int j=0;j<3;j++){
+            a[i].push_back(0);
+        }
+    }
+    cout<<number_of_path(4,4)<<endl;
+}
