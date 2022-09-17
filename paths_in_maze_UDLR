@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void rec(string s,vector<vector<int> > mz,int r,int c){
+
+    if(r==mz.size()-1 && c==mz[0].size()-1){
+        cout<<s<<endl;
+        return;
+    }
+
+    if(mz[r][c]==1){
+        return;
+    }
+
+    //we are visiting the path '1' means footprint
+    mz[r][c]=1;
+    if(r<mz.size()-1 ){
+        rec(s+"R",mz,r+1,c);
+    }
+    if(c<mz[0].size()-1 ){
+        rec(s+"D",mz,r,c+1);
+    }
+    if(r>0){
+        rec(s+"L",mz,r-1,c);
+    }
+    if(c>0){
+        rec(s+"U",mz,r,c-1);
+    }
+    //we are done with visiting the path
+    //now we are removing footprints
+    mz[r][c]=0;
+
+}
+
+int main()
+{
+    vector<vector<int> > mz;
+    for(int i=0;i<3;i++){
+            vector<int> tm;
+        for(int j=0;j<4;j++){
+            tm.push_back(0);
+        }
+        mz.push_back(tm);
+    }
+    rec("",mz,0,0);
+}
